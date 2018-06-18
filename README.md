@@ -1,6 +1,6 @@
 # Groupmuse-2018
 
-This repository contains a sample of the React Native work I did for Groupmuse, a company which connects musicians to perform at classic music house shows.
+This repository contains a sample of the React Native work I completed for Groupmuse, a company which connects musicians to perform at classic music house shows. https://www.groupmuse.com/
 
 There are three folders.
 
