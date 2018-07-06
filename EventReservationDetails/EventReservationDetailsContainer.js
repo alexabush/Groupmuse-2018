@@ -24,17 +24,11 @@ class EventReservationDetailsContainer extends PureComponent {
   async componentDidMount() {
     this.setState({ loading: true });
     const { id } = this.props.navParams;
-    console.log(
-      'entering componentDidMount of EventReservationDetailsContainer'
-    );
-    debugger;
     await this.props.fetchEventAndReservationDetails(id);
-    debugger;
     this.setState({ loading: false });
   }
 
   render() {
-    console.log('entering render of EventReservationDetailsContainer');
     const { navigate, reservation, navParams } = this.props;
 
     if (this.state.loading) {
@@ -70,7 +64,10 @@ function mapStateToProps({ reservation, user }) {
 }
 
 export default enhanceContainer(
-  connect(mapStateToProps, {
-    fetchEventAndReservationDetails
-  })(EventReservationDetailsContainer)
+  connect(
+    mapStateToProps,
+    {
+      fetchEventAndReservationDetails
+    }
+  )(EventReservationDetailsContainer)
 );

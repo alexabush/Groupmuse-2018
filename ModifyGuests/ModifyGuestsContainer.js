@@ -30,7 +30,6 @@ class ModifyGuestsContainer extends PureComponent {
   async componentDidMount() {
     this.setState({ loading: true });
     const { eventId } = this.props.navParams;
-    console.log('entering componentDidMount of ModifyGuestsContainer');
     await this.props.fetchEventAndReservationDetails(eventId);
     this.setState({ loading: false });
   }
@@ -49,7 +48,6 @@ class ModifyGuestsContainer extends PureComponent {
   };
 
   render() {
-    console.log('entering render of ModifyGuestsContainer');
     const { navigate, reservation } = this.props;
     if (this.state.loading) {
       return (
@@ -83,9 +81,12 @@ function mapStateToProps({ reservation }) {
 }
 
 export default enhanceContainer(
-  connect(mapStateToProps, {
-    fetchEventAndReservationDetails,
-    updateReservationRequest,
-    removeGuestFromPlusOnes
-  })(ModifyGuestsContainer)
+  connect(
+    mapStateToProps,
+    {
+      fetchEventAndReservationDetails,
+      updateReservationRequest,
+      removeGuestFromPlusOnes
+    }
+  )(ModifyGuestsContainer)
 );

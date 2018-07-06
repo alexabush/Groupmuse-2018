@@ -27,7 +27,6 @@ class CancelReservationContainer extends PureComponent {
   async componentDidMount() {
     this.setState({ loading: true });
     const { eventId } = this.props.navParams;
-    console.log('entering componentDidMount of CancelReservationContainer');
     await this.props.fetchEventAndReservationDetails(eventId);
     this.setState({ loading: false });
   }
@@ -38,7 +37,6 @@ class CancelReservationContainer extends PureComponent {
   };
 
   render() {
-    console.log('entering render of CancelReservationContainer');
     const { reservation, navigate } = this.props;
     if (this.state.loading) {
       return (
@@ -55,7 +53,6 @@ class CancelReservationContainer extends PureComponent {
         deleteRsvp={this.deleteRsvp}
       />
     );
-    // goBack={goBack}
   }
 }
 
@@ -72,8 +69,11 @@ function mapStateToProps({ reservation }) {
 }
 
 export default enhanceContainer(
-  connect(mapStateToProps, {
-    fetchEventAndReservationDetails,
-    deleteReservationRequest
-  })(CancelReservationContainer)
+  connect(
+    mapStateToProps,
+    {
+      fetchEventAndReservationDetails,
+      deleteReservationRequest
+    }
+  )(CancelReservationContainer)
 );
